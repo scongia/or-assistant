@@ -1,0 +1,101 @@
+{
+    "services": {
+        "LaunchPage": {            
+            "adapter": {
+                "config": {
+                    "catalogs": [
+                        {
+                            "id": "books_catalog",
+                            "title": "Books Application Catalog",
+                            "tiles": [
+                                {
+                                    "id": "PeopleBrowse",
+                                    "title": "Browse People...",
+                                    "size": "1×1",
+                                    "tileType": "sap.ushell.ui.tile.DynamicTile",
+                                    "properties": {
+                                        "chipId": "catalogTile_001",
+                                        "title": "Browse People",
+                                        "info": "People",
+                                        "targetURL": "#People-manage"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "groups": [
+                        {
+                            "id": "books_group",
+                            "title": "OData V2",
+                            "isPreset": true,
+                            "isVisible": true,
+                            "isGroupLocked": false,
+                            "tiles": [
+                                {
+                                    "id": "Persons",
+                                    "title": "Persons",
+                                    "size": "1×1",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "chipId": "V2catalogTile_Persons",
+                                        "title": "Persons",
+                                        "info": "Management",
+                                        "targetURL": "#People-manage"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "books_group",
+                            "title": "OData V4",
+                            "isPreset": true,
+                            "isVisible": true,
+                            "isGroupLocked": false,
+                            "tiles": [
+                                {
+                                    "id": "Persons",
+                                    "title": "Persons",
+                                    "size": "1×1",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "chipId": "V4catalogTile_Persons",
+                                        "title": "Persons",
+                                        "info": "Management",
+                                        "targetURL": "#V4Persons-manage"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "NavTargetResolution": {
+            "config": {
+                "enableClientSideTargetResolution": true
+            }
+        },
+        "ClientSideTargetResolution": {
+            "adapter": {
+                "config": {
+                    "inbounds": {
+                        "actionApprovals": {
+                            "semanticObject": "V4Persons",
+                            "action": "manage",
+                            "title": "People",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "allowed"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=persons.admin",
+                                "url": "persons-admin/webapp"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

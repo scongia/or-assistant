@@ -1,0 +1,6 @@
+ID,roleName,description
+0,Patient,Person admitted for medical care
+C,Surgeon,Mecical specialist admitting patient for medical care
+D,Anesthesiologist,Gas Monkey
+F,Operating Theatre Nurse,The other person in the room
+
