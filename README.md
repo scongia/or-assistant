@@ -31,4 +31,4 @@ npm run build:deploy:startv2
 
 Open these links in your browser:
 
-* <http://localhost:4004> &ndash; Fiori Launchpad sandbox
+* <http://localhost:4005> &ndash; Fiori Launchpad sandbox
