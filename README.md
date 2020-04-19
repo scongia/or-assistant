@@ -1,25 +1,34 @@
-# Getting Started
+# Operating Room Assistant App
 
-Welcome to your new project.
+Application for managing hospital resources, patient admissions and reserving operating theatres.  
 
-It contains these folders and files, following our recommended project layout:
+## Preliminaries
 
-File / Folder | Purpose
----------|----------
-`app/` | content for UI frontends go here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+* get [_Node.js_](https://nodejs.org/en/) v12 or higher
+* get [_sqlite_](https://www.sqlite.org/download.html) (Windows only; pre-installed on Mac/Linux)
+* _npm set @sap:registry_ to the latest _nexus snapshots_:
 
+```sh
+npm set @sap:registry=https://npm.sap.com
+```
 
-## Next Steps...
+## Setup
 
-- Open a new terminal and run  `cds watch`
-- ( in VSCode simply choose _**Terminal** > Run Task > cds watch_ )
-- Start adding content, e.g. a [db/schema.cds](db/schema.cds), ...
+Copy & paste this to your command line:
 
+```sh
+git clone https://github.com/scongia/or-assistant.git
+cd or-assistant
+npm run setup
+```
 
-## Learn more...
+## Run
+```sh
+npm run build:deploy:startv2
+```
 
-Learn more at https://cap.cloud.sap/docs/get-started/
+## Test
+
+Open these links in your browser:
+
+* <http://localhost:4004> &ndash; Fiori Launchpad sandbox
