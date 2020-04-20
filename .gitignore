@@ -1,23 +1,34 @@
-# CAP or-assistant
-_out
-*.db
-connection.properties
-default-*.json
+.idea/
 gen/
-node_modules/
-package-lock.json
-target/
-
-# Web IDE, App Studio
-.che/
 .gen/
-
-# MTA
-*_mta_build_tmp
-*.mtar
-mta_archives/
-
-# Other
+node_modules/
+target/
+*.db
 .DS_Store
-*.orig
-*.log
+_out
+
+default-env.json
+
+fioriHtmlRunner.html
+.*/fioriHtmlRunner.html
+visual_ext_index.html
+/webapp/visual_ext_index.html
+extended_runnable_file.html
+.*/extended_runnable_file.html
+sap-ui-cachebuster-info.json
+mock_preview_sapui5.html
+.*/mock_preview_sapui5.html
+UIAdaptation_index.html
+changes_preview.js
+AppVariant_index.html
+AppVariantPreviewPayload.zip
+mergedManifestDescriptor.json
+APIExternalProducer.js
+.*/APIExternalProducer.js
+/mta_archives/
+Makefile*
+db/or-assistant.db-journal
+preview.json
+cp.project.properties.json
+
+.cds_gen.log
