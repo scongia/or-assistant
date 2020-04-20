@@ -17,6 +17,7 @@ annotate AdminService.Persons with @(
 				{Value: lastName},
                 {Value: dateOfBirth},
                 {Value: idNumber},
+				{Value: gender},
 			]
 		},
 		FieldGroup#Address: {

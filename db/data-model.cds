@@ -8,12 +8,20 @@ entity Persons: cuid, managed {
     phoneNumber	    : String(20);
     firstName		: String(200);
     lastName		: String(200);
+    initials        : String(10);
     title			: String(4);
     dateOfBirth	    : Date;
-    idNumber		: String(50);
+    idNumber		: String(50);  
     eMail			: String(100);
     Addresses		: Composition of many Addresses on Addresses.parent=$self;
     Roles           : Composition of many Person_Role on Roles.parent=$self;
+
+    gender                : String(1) 
+      @( title: 'Gender', ) enum {
+        male    = 'M' @( title: 'Male');
+        female  = 'F' @( title: 'Female');
+        other   = 'O' @( title: 'Other');
+    };
 };
 
 entity Addresses: cuid, managed {
@@ -31,52 +39,16 @@ entity Roles : managed{
     key ID          : Role        @( title: 'Role ID', ); 
     roleName        : String(255) @( title: 'Role Name', );
     description     : String      @( title: 'Description', );
+
+    category        : String(2) 
+      @( title: 'Category', ) enum {
+        medDoctor   = 'MD' @( title: 'Medical Doctor');
+        patient     = 'PA' @( title: 'Patient');
+        nurse       = 'NU' @( title: 'Nursing');
+    };        
 };
 
 entity Person_Role : cuid{
 	parent	        : Association to Persons;
 	role			: Role;
 };
-
-
-
-
-
-// //[01] - Medical Practitioner
-// entity Practitioners : managed {
-//     key Persons	        : Association to Persons;
-// 		PracticeNo		: String(50);
-//         SubDiscipline	: Association to SubDisciplines;
-// }
-
-// //[02] - Patient
-// entity Patients : managed {
-//     key	Persons	        : Association to Persons;
-// 		MedicalAid		: String(50);
-// 		MedicalAidNo	: String(10);
-// 		Admissions		: Association to many Admissions on Admissions.Patient=$self;
-// }
-
-// //Admission
-// entity Admissions: cuid, temporal{
-//         Patient			: Association to Patients;
-//         Practitioner	: Association to Practitioners;
-// 		Procedure		: String(200);
-// 		Ward			: String(50);
-// 		Discharged		: Boolean;
-// }
-
-// //Lookup
-// entity Disciplines {
-//     key DisciplineID	: String(4);
-// 		Description		: String(100);
-// 		SubDisciplines	: Association to many SubDisciplines on SubDisciplines.Discipline=$self;
-// };
-
-// entity SubDisciplines {
-//     key DisciplineID	: String(4);
-//     key SubDisciplineID	: String(4);
-//     	Discipline		: Association to Disciplines on Discipline.DisciplineID = DisciplineID;
-//         Description		: String(100);
-//         Title			: String(150);
-// };
