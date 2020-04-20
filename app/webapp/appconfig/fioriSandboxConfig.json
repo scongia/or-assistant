@@ -5,8 +5,8 @@
                 "config": {
                     "catalogs": [
                         {
-                            "id": "books_catalog",
-                            "title": "Books Application Catalog",
+                            "id": "people_catalog",
+                            "title": "People Application Catalog",
                             "tiles": [
                                 {
                                     "id": "PeopleBrowse",
@@ -25,7 +25,7 @@
                     ],
                     "groups": [
                         {
-                            "id": "books_group",
+                            "id": "v2_group",
                             "title": "OData V2",
                             "isPreset": true,
                             "isVisible": true,
@@ -39,14 +39,14 @@
                                     "properties": {
                                         "chipId": "V2catalogTile_Persons",
                                         "title": "Persons",
-                                        "info": "Management",
+                                        "info": "..oData V2",
                                         "targetURL": "#People-manage"
                                     }
                                 }
                             ]
                         },
                         {
-                            "id": "books_group",
+                            "id": "v4_group",
                             "title": "OData V4",
                             "isPreset": true,
                             "isVisible": true,
@@ -60,7 +60,7 @@
                                     "properties": {
                                         "chipId": "V4catalogTile_Persons",
                                         "title": "Persons",
-                                        "info": "Management",
+                                        "info": "..oData V4",
                                         "targetURL": "#V4Persons-manage"
                                     }
                                 }
