@@ -1,6 +1,5 @@
-ID,roleName,category,description
+ID,ROLENAME,CATEGORY,DESCRIPTION
 0,Patient,PA,Person admitted for medical care
 C,Surgeon,MD,Mecical specialist admitting patient for medical care
 D,Anesthesiologist,MD,Gas Monkey
 F,Operating Theatre Nurse,NU,The other person in the room
-

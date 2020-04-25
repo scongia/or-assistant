@@ -1,6 +1,10 @@
 .idea/
 gen/
 .gen/
+.che/
+app/.che/
+db/.che/
+srv/.che/
 node_modules/
 target/
 *.db

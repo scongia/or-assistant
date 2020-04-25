@@ -1,0 +1,33 @@
+{
+  "xsappname": "or-assistant",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.admin",
+      "description": "admin"
+    },
+    {
+      "name": "$XSAPPNAME.roleadmin",
+      "description": "roleadmin"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "admin",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.admin"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "roleadmin",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.roleadmin"
+      ],
+      "attribute-references": []
+    }
+  ]
+}

@@ -5,5 +5,38 @@
             {"src": "db","for": "hana","options": {"model": ["db","srv","app"]}},
             {"src": "srv","for": "node-cf","options": {"model": ["db","srv","app"]}}
         ]
+    },
+    "auth": {
+        "passport": {
+            "strategy": "mock",
+            "users": {
+                "admin": {
+                    "password":"welcome",
+                    "jwt": {
+                        "userInfo": {
+                            "logonName": "admin",
+                            "email": "alice@example.com"
+                        },
+                        "scopes": [
+                            "admin",
+                            "roleadmin"
+                        ]
+                    }
+                },
+                "bob": {
+                    "password":"welcome",
+                    "jwt": {
+                        "userInfo": {
+                            "logonName": "bob@example.com"
+                        },
+                        "scopes": [
+                            "authenticated-user",
+                            "openid"
+                        ]
+                    }
+                }
+            }
+        }
     }
+
 }
