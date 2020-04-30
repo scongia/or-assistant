@@ -3,18 +3,19 @@ namespace com.or.assistant;
 using { managed, temporal, cuid } from '@sap/cds/common';
 
 type Role : String(10);
+type RoleName : String(255);
 
 entity Persons: cuid, managed {
-    phoneNumber	    : String(20);
-    firstName				: String(200);
-    lastName				: String(200);
-    initials        : String(10);
-    title						: String(4);
+    phoneNumber			: String(20);
+    firstName			: String(200);
+    lastName			: String(200);
+    initials        	: String(10);
+    title				: String(4);
     dateOfBirth			: Date;
-    idNumber				: String(50);  
-    eMail						: String(100);
+    idNumber			: String(50);  
+    eMail				: String(100);
     // Addresses		: Composition of many Addresses on Addresses.parent=$self;
-    Roles						: Composition of many Person_Role on Roles.parent=$self;
+    Roles				: Composition of many Person_Role on Roles.parent=$self;
     Practitioners		: Composition of many Practitioners on Practitioners.parent=$self;
     Patients		    : Composition of many Patients on Patients.parent=$self;
 
@@ -39,7 +40,7 @@ entity Persons: cuid, managed {
 
 entity Roles : managed{
     key ID          : Role        @( title: 'Role ID', ); 
-    roleName        : String(255) @( title: 'Role Name', );
+    roleName        : RoleName    @( title: 'Role Name', );
     description     : String      @( title: 'Description', );
 
     category        : String(2) 

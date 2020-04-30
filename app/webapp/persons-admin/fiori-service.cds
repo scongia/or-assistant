@@ -33,9 +33,9 @@ annotate AdminService.Persons with @(
 annotate AdminService.Person_Role with @(
 	UI: {
 		HeaderInfo: {
-            TypeName: '{i18n>Role}', TypeNamePlural: '{i18n>Roles}',
-            Title: { Value: role }
-        },
+			TypeName: '{i18n>Role}', TypeNamePlural: '{i18n>Roles}',
+			Title: { Value: role }
+		},
 		Facets: [
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'} 
 		],
@@ -48,11 +48,14 @@ annotate AdminService.Person_Role with @(
 		LineItem: [
 			{ Value: role, Label: '{i18n>Role}' }
 			]
-	},
+	}
+);
+
+annotate AdminService.Person_Role with @(
 	Capabilities: {
-            InsertRestrictions: {Insertable: true},
-            DeleteRestrictions: {Deletable: true}
-        }
+			InsertRestrictions: {Insertable: true},
+			DeleteRestrictions: {Deletable: true}
+		}
 	)
 	{
 	role @(
@@ -64,13 +67,13 @@ annotate AdminService.Person_Role with @(
 };
 
 annotate AdminService.Roles with @(
-    UI:{
-        Identification: [{Value:roleName}],
+	UI:{
+		Identification: [{Value:roleName}],
 		SelectionFields: [ ID, roleName ],
-        LineItem: [
-            {Value: ID},
-            {Value: roleName},
-            // {Value: description}
+		LineItem: [
+			{Value: ID},
+			{Value: roleName},
+			// {Value: description}
         ]
     }
 );
