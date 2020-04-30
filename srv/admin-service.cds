@@ -10,5 +10,7 @@ service AdminService  @(path:'/admin') {
 
     entity Roles as projection on db.Roles;
 
-    entity Address as projection on db.Addresses;
+    entity Practitioners as projection on db.Practitioners;
+
+    // entity Address as projection on db.Addresses;
 }

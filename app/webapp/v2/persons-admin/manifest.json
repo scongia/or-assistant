@@ -54,6 +54,32 @@
 				}
 			}
 		},
+		"extends": {
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					 "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+							"controllerName": "v2.persons.admin.ext.controller.ObjectPageExt",
+							"sap.ui.generic.app": {
+								"Persons":{
+									"EntitySet": "Persons",
+									"Sections":{
+										"Persons_Roles::com.sap.vocabularies.UI.v1.LineItem":{
+											"id": "Roles::com.sap.vocabularies.UI.v1.LineItem",
+											"Actions":{
+												"CreateRole":{
+													"id": "CreateRoleAction",
+													"text": "{{createRole}}",
+													"press":"onCreateRolesActions"
+												}
+											}
+										}
+									}
+								}
+							}
+					 }
+				}
+		  }
+		},
 		"resources": {
 			"js": [],
 			"css": []
@@ -66,10 +92,6 @@
 	"sap.ui.generic.app": {
 		"_version": "1.3.0",
 		"settings": {
-			"flexibleColumnLayout": {
-				"defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
-				"defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
-			},
 			"forceGlobalRefresh": false,
 			"objectPageHeaderType": "Dynamic",
 			"showDraftToggle": false
@@ -91,7 +113,14 @@
 						"entitySet": "Persons",
 						"component": {
 							"name": "sap.suite.ui.generic.template.ObjectPage"
-						}
+						},
+						"pages": [{
+							"navigationProperty": "Roles",
+							"entitySet": "Person_Role",
+							"component": {
+								"name": "sap.suite.ui.generic.template.ObjectPage"
+							}
+						}]
 					}
 				}
 			}

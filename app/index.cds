@@ -8,7 +8,7 @@ using com.or.assistant as db from '../db/data-model';
 annotate db.Persons with @(
     UI:{
         Identification: [{Value:firstName}],
-        SelectionFields: [ firstName, lastName, Roles.role],
+        SelectionFields: [ firstName, lastName, gender, Roles.role],
         LineItem: [
             {Value: title},
             {Value: lastName},
@@ -42,4 +42,10 @@ annotate db.Persons with {
 
 annotate db.Person_Role with {
 	role @title:'{i18n>role}';
+}
+
+////////////////////////////////////////////////////////////////////////////
+//    Practitioners
+annotate db.Practitioners with {
+	practiceNo @title:'{i18n>PracticeNumber}';
 }

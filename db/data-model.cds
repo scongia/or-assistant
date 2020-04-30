@@ -6,15 +6,17 @@ type Role : String(10);
 
 entity Persons: cuid, managed {
     phoneNumber	    : String(20);
-    firstName		: String(200);
-    lastName		: String(200);
+    firstName				: String(200);
+    lastName				: String(200);
     initials        : String(10);
-    title			: String(4);
-    dateOfBirth	    : Date;
-    idNumber		: String(50);  
-    eMail			: String(100);
-    Addresses		: Composition of many Addresses on Addresses.parent=$self;
-    Roles           : Composition of many Person_Role on Roles.parent=$self;
+    title						: String(4);
+    dateOfBirth			: Date;
+    idNumber				: String(50);  
+    eMail						: String(100);
+    // Addresses		: Composition of many Addresses on Addresses.parent=$self;
+    Roles						: Composition of many Person_Role on Roles.parent=$self;
+    Practitioners		: Composition of many Practitioners on Practitioners.parent=$self;
+    Patients		    : Composition of many Patients on Patients.parent=$self;
 
     gender                : String(1) 
       @( title: 'Gender', ) enum {
@@ -24,16 +26,16 @@ entity Persons: cuid, managed {
     };
 };
 
-entity Addresses: cuid, managed {
-    parent          : Association to Persons;
-    isDefault       : Boolean;
-    city            : String(60) @( title: 'City', );
-    street          : String(60) @( title: 'Street', );
-    postalCode		: String(50);
-    building		: String(100);
-    country			: String(5);
-    region			: String(4);
-};
+// entity Addresses: cuid, managed {
+//     parent          : Association to Persons;
+//     isDefault       : Boolean;
+//     city            : String(60) @( title: 'City', );
+//     street          : String(60) @( title: 'Street', );
+//     postalCode		: String(50);
+//     building		: String(100);
+//     country			: String(5);
+//     region			: String(4);
+// };
 
 entity Roles : managed{
     key ID          : Role        @( title: 'Role ID', ); 
@@ -50,5 +52,16 @@ entity Roles : managed{
 
 entity Person_Role : cuid{
 	parent	        : Association to Persons;
-	role			: Role;
+	role						: Role;
 };
+
+entity Practitioners : cuid, managed {
+    parent				: Association to Persons;
+		practiceNo		: String(50);
+}
+
+entity Patients : cuid, managed  {
+    parent				: Association to Persons;
+		MedicalAid		: String(50);
+		MedicalAidNo	: String(20);
+}

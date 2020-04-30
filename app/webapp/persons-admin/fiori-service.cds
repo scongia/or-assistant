@@ -7,7 +7,6 @@ annotate AdminService.Persons with @(
 		Facets: [
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'},
             {$Type: 'UI.ReferenceFacet', Label: '{i18n>Roles}', Target: 'Roles/@UI.LineItem'},
-			{$Type: 'UI.ReferenceFacet', Label: '{i18n>Address}', Target: 'Addresses/@UI.LineItem'},
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>Admin}', Target: '@UI.FieldGroup#Admin'},
 		],
 		FieldGroup#General: {
@@ -18,19 +17,6 @@ annotate AdminService.Persons with @(
                 {Value: dateOfBirth},
                 {Value: idNumber},
 				{Value: gender},
-			]
-		},
-		FieldGroup#Address: {
-			Data: [
-			// 	{Value: stock},
-			// 	{Value: price},
-			// 	{Value: currency_code, Label: '{i18n>Currency}'},
-			// 	{Value: weight     },
-			// 	{Value: height     },
-			// 	{Value: width      },
-			// 	{Value: visible    },
-			// 	{Value: releaseDate},
-			// 	{Value: readingTime},
 			]
 		},
 		FieldGroup#Admin: {
@@ -44,7 +30,31 @@ annotate AdminService.Persons with @(
 	}
 );
 
-annotate AdminService.Person_Role with {
+annotate AdminService.Person_Role with @(
+	UI: {
+		HeaderInfo: {
+            TypeName: '{i18n>Role}', TypeNamePlural: '{i18n>Roles}',
+            Title: { Value: role }
+        },
+		Facets: [
+			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'} 
+		],
+
+		FieldGroup#General: {
+			Data: [
+				{Value: role}  //Should be read only
+			]
+		},
+		LineItem: [
+			{ Value: role, Label: '{i18n>Role}' }
+			]
+	},
+	Capabilities: {
+            InsertRestrictions: {Insertable: true},
+            DeleteRestrictions: {Deletable: true}
+        }
+	)
+	{
 	role @(
 		Common: {
 			FieldControl: #Mandatory
@@ -52,20 +62,6 @@ annotate AdminService.Person_Role with {
 		ValueList.entity:'Roles',
 	);
 };
-
-annotate AdminService.Person_Role with @(
-  UI: {
-	SelectionFields: [ role ],
-
-    LineItem: [
-      { Value: role, Label: '{i18n>Role}' }
-    ],
-
-	HeaderInfo: {
-    	Title: { Value: role },
-  	}
-  }
-);
 
 annotate AdminService.Roles with @(
     UI:{
@@ -77,4 +73,17 @@ annotate AdminService.Roles with @(
             // {Value: description}
         ]
     }
+);
+
+annotate AdminService.Practitioners with @(
+	UI: {
+		Facets: [
+			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'},
+		],
+		FieldGroup#General: {
+			Data: [
+				{Value: practiceNo},
+			]
+		},
+	}
 );
