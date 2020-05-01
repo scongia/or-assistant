@@ -58,24 +58,7 @@
 			"extensions": {
 				"sap.ui.controllerExtensions": {
 					 "sap.suite.ui.generic.template.ObjectPage.view.Details": {
-							"controllerName": "v2.persons.admin.ext.controller.ObjectPageExt",
-							"sap.ui.generic.app": {
-								"Persons":{
-									"EntitySet": "Persons",
-									"Sections":{
-										"Persons_Roles::com.sap.vocabularies.UI.v1.LineItem":{
-											"id": "Roles::com.sap.vocabularies.UI.v1.LineItem",
-											"Actions":{
-												"CreateRole":{
-													"id": "CreateRoleAction",
-													"text": "{{createRole}}",
-													"press":"onCreateRolesActions"
-												}
-											}
-										}
-									}
-								}
-							}
+							"controllerName": "v2.persons.admin.ext.controller.ObjectPageExt"
 					 }
 				}
 		  }
