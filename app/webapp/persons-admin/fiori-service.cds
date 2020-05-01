@@ -37,7 +37,7 @@ annotate AdminService.Person_Role with @(
 			Title: { Value: role }
 		},
 		Facets: [
-			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'} 
+			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'}
 		],
 
 		FieldGroup#General: {
@@ -66,27 +66,15 @@ annotate AdminService.Person_Role with @(
 	);
 };
 
-annotate AdminService.Roles with @(
-	UI:{
-		Identification: [{Value:roleName}],
-		SelectionFields: [ ID, roleName ],
-		LineItem: [
-			{Value: ID},
-			{Value: roleName},
-			// {Value: description}
-        ]
-    }
-);
-
-annotate AdminService.Practitioners with @(
-	UI: {
-		Facets: [
-			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'},
-		],
-		FieldGroup#General: {
-			Data: [
-				{Value: practiceNo},
-			]
-		},
-	}
-);
+// annotate AdminService.MedicalDoctors with @(
+// 	UI: {
+// 		Facets: [
+// 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'},
+// 		],
+// 		FieldGroup#General: {
+// 			Data: [
+// 				{Value: practiceNo},
+// 			]
+// 		},
+// 	}
+// );

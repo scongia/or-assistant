@@ -31,6 +31,7 @@
     "deploy": "cds deploy srv --to sqlite:db/or-assistant.db",
     "build": "cds build/all --clean",
     "start": "npx cds run",
+    "setup:build:deploy": "npm run build && npm run build && npm run deploy",
     "build:deploy:startv2": "npm run build && npm run deploy && node v2server",
     "startv2": "node v2server"
   },

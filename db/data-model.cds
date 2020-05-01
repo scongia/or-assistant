@@ -16,8 +16,8 @@ entity Persons: cuid, managed {
     eMail				: String(100);
     // Addresses		: Composition of many Addresses on Addresses.parent=$self;
     Roles				: Composition of many Person_Role on Roles.parent=$self;
-    Practitioners		: Composition of many Practitioners on Practitioners.parent=$self;
-    Patients		    : Composition of many Patients on Patients.parent=$self;
+    MedicalDoctors		: Composition of many MedicalDoctors on MedicalDoctors.parent=$self;
+    //Patients		    : Composition of many Patients on Patients.parent=$self;
 
     gender                : String(1) 
       @( title: 'Gender', ) enum {
@@ -42,7 +42,7 @@ entity Roles : managed{
     key ID          : Role        @( title: 'Role ID', ); 
     roleName        : RoleName    @( title: 'Role Name', );
     description     : String      @( title: 'Description', );
-
+	Assignments		: Association to Persons on Assignments.Roles.ID = ID;
     category        : String(2) 
       @( title: 'Category', ) enum {
         medDoctor   = 'MD' @( title: 'Medical Doctor');
@@ -56,13 +56,13 @@ entity Person_Role : cuid{
 	role						: Role;
 };
 
-entity Practitioners : cuid, managed {
+entity MedicalDoctors : cuid, managed {
     parent				: Association to Persons;
 		practiceNo		: String(50);
 }
 
 entity Patients : cuid, managed  {
-    parent				: Association to Persons;
-		MedicalAid		: String(50);
-		MedicalAidNo	: String(20);
+    parent			: Association to Persons;
+	MedicalAid		: String(50);
+	MedicalAidNo	: String(20);
 }

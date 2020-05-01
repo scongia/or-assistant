@@ -1,7 +1,7 @@
 {
 	"_version": "1.8.0",
 	"sap.app": {
-		"id": "v2.persons.admin",
+		"id": "v2.roles.admin",
 		"type": "application",
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
@@ -54,32 +54,6 @@
 				}
 			}
 		},
-		"extends": {
-			"extensions": {
-				"sap.ui.controllerExtensions": {
-					 "sap.suite.ui.generic.template.ObjectPage.view.Details": {
-							"controllerName": "v2.persons.admin.ext.controller.ObjectPageExt",
-							"sap.ui.generic.app": {
-								"Persons":{
-									"EntitySet": "Persons",
-									"Sections":{
-										"Persons_Roles::com.sap.vocabularies.UI.v1.LineItem":{
-											"id": "Roles::com.sap.vocabularies.UI.v1.LineItem",
-											"Actions":{
-												"CreateRole":{
-													"id": "CreateRoleAction",
-													"text": "{{createRole}}",
-													"press":"onCreateRolesActions"
-												}
-											}
-										}
-									}
-								}
-							}
-					 }
-				}
-		  }
-		},
 		"resources": {
 			"js": [],
 			"css": []
@@ -97,8 +71,8 @@
 			"showDraftToggle": false
 		},
 		"pages": {
-			"ListReport|Persons": {
-				"entitySet": "Persons",
+			"ListReport|Roles": {
+				"entitySet": "Roles",
 				"component": {
 					"name": "sap.suite.ui.generic.template.ListReport",
 					"list": true,
@@ -109,10 +83,16 @@
 					}
 				},
 				"pages": {
-					"ObjectPage|Persons": {
-						"entitySet": "Persons",
+					"ObjectPage|Roles": {
+						"entitySet": "Roles",
 						"component": {
-							"name": "sap.suite.ui.generic.template.ObjectPage"
+							"name": "sap.suite.ui.generic.template.ObjectPage",
+							"settings": {
+									"showRelatedApps": false,
+									"gridTable": false,
+									"editableHeaderContent": false,
+									"simpleHeaderFacets":true 
+							}
 						},
 						"pages": [{
 							"navigationProperty": "Roles",

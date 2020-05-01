@@ -1,5 +1,6 @@
 
 using from './webapp/persons-admin/fiori-service';
+using from './webapp/roles-admin/fiori-service';
 
 using com.or.assistant as db from '../db/data-model';
 

@@ -19,6 +19,18 @@
                                         "info": "People",
                                         "targetURL": "#People-manage"
                                     }
+								},
+								{
+                                    "id": "RoleBrowse",
+                                    "title": "Browse Roles...",
+                                    "size": "1×1",
+                                    "tileType": "sap.ushell.ui.tile.DynamicTile",
+                                    "properties": {
+                                        "chipId": "catalogTile_002",
+                                        "title": "Browse Roles",
+                                        "info": "Roles",
+                                        "targetURL": "#Role-manage"
+                                    }
                                 }
                             ]
                         }
@@ -42,6 +54,18 @@
                                         "info": "..oData V2",
                                         "targetURL": "#People-manage"
                                     }
+								},
+								{
+                                    "id": "Roles",
+                                    "title": "Roles",
+                                    "size": "1×1",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "chipId": "V2catalogTile_Roles",
+                                        "title": "Roles",
+                                        "info": "..oData V2",
+                                        "targetURL": "#V2Roles-manage"
+                                    }
                                 }
                             ]
                         },
@@ -63,6 +87,18 @@
                                         "info": "..oData V4",
                                         "targetURL": "#V4Persons-manage"
                                     }
+								},
+								{
+                                    "id": "Roles",
+                                    "title": "Roles",
+                                    "size": "1×1",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "chipId": "V4catalogTile_Roles",
+                                        "title": "Roles",
+                                        "info": "..oData V4",
+                                        "targetURL": "#V4Roles-manage"
+                                    }
                                 }
                             ]
                         }
@@ -79,7 +115,7 @@
             "adapter": {
                 "config": {
                     "inbounds": {
-                        "actionApprovals": {
+                        "actionPersons": {
                             "semanticObject": "V4Persons",
                             "action": "manage",
                             "title": "People",
@@ -91,6 +127,34 @@
                                 "applicationType": "SAPUI5",
                                 "additionalInformation": "SAPUI5.Component=persons.admin",
                                 "url": "persons-admin/webapp"
+                            }
+						},
+						"actionV2Roles": {
+                            "semanticObject": "V2Roles",
+                            "action": "manage",
+                            "title": "Roles",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "allowed"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=v2.roles.admin",
+                                "url": "v2/roles-admin"
+                            }
+						},
+						"actionRoles": {
+                            "semanticObject": "V4Roles",
+                            "action": "manage",
+                            "title": "Roles",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "allowed"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=roles.admin",
+                                "url": "roles-admin/webapp"
                             }
                         }
                     }
