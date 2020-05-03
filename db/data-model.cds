@@ -42,7 +42,7 @@ entity Roles : managed{
     key ID          : Role        @( title: 'Role ID', ); 
     roleName        : RoleName    @( title: 'Role Name', );
     description     : String      @( title: 'Description', );
-	Assignments		: Association to Persons on Assignments.Roles.ID = ID;
+	Assignments		: Association to Persons;
     category        : String(2) 
       @( title: 'Category', ) enum {
         medDoctor   = 'MD' @( title: 'Medical Doctor');
@@ -53,7 +53,7 @@ entity Roles : managed{
 
 entity Person_Role : cuid{
 	parent	        : Association to Persons;
-	role						: Role;
+	role			: Role;
 };
 
 entity MedicalDoctors : cuid, managed {

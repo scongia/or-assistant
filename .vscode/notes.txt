@@ -1,0 +1,100 @@
+// View CDS registry
+npm view  @sap/cds --registry https://npm.sap.com
+
+//Using Repl
+//Loading Repl
+cds r
+
+//to exit Repl
+Ctrl + D
+
+//connecting to db (uses the 'cds.requires.<db name>' stanza in package.json )
+const cds = require('@sap/cds').connect('db')
+
+//useful commands
+cds.entities		// lists entities
+cds.env				// shows package.json plus additional data
+Object.keys(cds.entities)  //list of entity names
+> Object.keys(cds.entities)
+[
+  'AdminService.DraftAdministrativeData',
+  'AdminService.MedicalDoctors',
+  'AdminService.Person_Role',
+  'AdminService.Persons',
+  'AdminService.Roles',
+  'DRAFT.DraftAdministrativeData',
+  'com.or.assistant.MedicalDoctors',
+  'com.or.assistant.Patients',
+  'com.or.assistant.Person_Role',
+  'com.or.assistant.Persons',
+  'com.or.assistant.Roles',
+  'cuid',
+  'localized.sap.common.Countries',
+  'localized.sap.common.Currencies',
+  'localized.sap.common.Languages',
+  'sap.common.Countries',
+  'sap.common.Countries_texts',
+  'sap.common.Currencies',
+  'sap.common.Currencies_texts',
+  'sap.common.Languages',
+  'sap.common.Languages_texts'
+]
+
+
+
+
+cds.entities['com.or.assistant.Roles'] //accessing entities with period in the name
+
+
+cds.load('db').then(cds.compile.to.sql) 			//Compile to SQL
+
+cds.run(SELECT.from('AdminService.Persons')) 		//Select from AdminService.Persons
+cds.run(SELECT.from('com.or.assistant.Persons')) 	//Select from Table
+
+
+////Using Vaiables
+>b = cds.entities['AdminService.Persons']
+>cds.run(SELECT.from(b))
+
+
+> b.name
+AdminService.Persons
+
+//INSERTING (reference to https://blogs.sap.com/2019/03/08/annotated-links-episode-4-of-hands-on-sap-dev-with-qmacro/)
+
+add_dna = INSERT.into(cds.entities.Authors)
+// -> { INSERT: { into: 'my.bookshop.Authors' } }
+
+add_dna.columns('ID', 'name')
+// -> { INSERT: { into: 'my.bookshop.Authors', columns: ['ID', 'name'] } }
+
+add_dna.columns('ID', 'name').values(42, 'Douglas Adams')
+
+which gives:
+
+{ INSERT:
+  { into: 'my.bookshop.Authors',
+    columns: [ 'ID', 'name' ],
+    values: [ 42, 'Douglas Adams' ] } }
+
+//To execute
+cds.run(add_dna)
+
+
+///Reading Persons
+
+//Select Person_Role
+
+SELECT com_or_assistant_Persons.*
+  FROM com_or_assistant_Persons join com_or_assistant_Person_Role 
+       on com_or_assistant_Person_Role.parent_id = com_or_assistant_Persons.ID
+ WHERE com_or_assistant_Person_Role.role = 'C';
+
+SELECT com_or_assistant_Persons.* FROM com_or_assistant_Persons join com_or_assistant_Person_Role on com_or_assistant_Person_Role.parent_id = com_or_assistant_Persons.ID WHERE com_or_assistant_Person_Role.role = 'C' 
+SELECT Persons.* FROM Persons join Person_Role on Person_Role.parent_id = Persons.ID WHERE Person_Role.role = 'C'
+
+SELECT.from('com.or.assistant.Person_Role',['parent_id']).where({role:'C'})
+
+
+SELECT.from('com.or.assistant.Persons').where(exists,SELECT.from('com.or.assistant.Person_Role',['parent_id']).where({role:'C'}))
+
