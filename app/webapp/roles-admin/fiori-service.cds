@@ -5,7 +5,7 @@ annotate AdminService.Roles with @(
         HeaderInfo: {
             TypeName: '{i18n>Role}', TypeNamePlural: '{i18n>Roles}',
             Title: { Value: roleName },
-            Description: { Value: ID } 
+            Description: { Value: role_ID } 
         },
 		HeaderFacets: [
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>Category}', Target: '@UI.FieldGroup#Category'},
@@ -30,9 +30,9 @@ annotate AdminService.Roles with @(
 annotate AdminService.Roles with @(
 	UI:{
 		Identification: [{Value:roleName}],
-		SelectionFields: [ ID, roleName, category ],
+		SelectionFields: [ role_ID, roleName, category ],
 		LineItem: [
-			{Value: ID},
+			{Value: role_ID},
 			{Value: roleName},
 			{Value: category}
         ]

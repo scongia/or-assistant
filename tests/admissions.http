@@ -1,0 +1,27 @@
+### Get Patients
+GET http://localhost:4005/v2/admission/Patients
+
+### Create Patient -Data v2
+POST http://localhost:4005/v2/admission/Patients
+Content-Type: application/json
+
+{
+    "firstName": "Freddie",
+    "lastName": "FreddieV2",
+    "dateOfBirth": "1980-06-16",
+    "gender": "M",
+    "title": "Mr"
+}
+
+### Create Patient -Data v4
+POST http://localhost:4005/admission/Patients
+Content-Type: application/json
+OData-Version: 4.0
+
+{
+    "firstName": "Freddie",
+    "lastName": "FreddieV4",
+    "dateOfBirth": "1980-06-16",
+    "gender": "M",
+    "title": "Mr"
+}

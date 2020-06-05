@@ -28,11 +28,11 @@ const port = process.env.PORT || 4005;
     .with('srv/admin-service.js')
     .in(app)
 
-  // await cds
-  //   .serve('CatalogService')
-  //   .from(csn)
-  //   .with('srv/cat-service.js')
-  //   .in(app)
+  await cds
+    .serve('AdmissionService')
+    .from(csn)
+    .with('srv/admission-service.js')
+    .in(app)
 
   // Swagger / OpenAPI
   // var options = {

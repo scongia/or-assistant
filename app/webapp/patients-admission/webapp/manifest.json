@@ -1,0 +1,113 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "patients.admission",
+        "type": "application",
+        "title": "Manage Patient",
+        "description": "Patients",
+        "i18n": "i18n/i18n.properties",
+        "dataSources": {
+            "AdmissionService": {
+                "uri": "/admission/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "-sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "-id": "ui5template.smartTemplate",
+            "-version": "1.40.12"
+        },
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "tags": {
+            "keywords": []
+        },
+        "offline": false        
+    },
+    "sap.ui5": {
+        "dependencies": {
+            "libs": {
+                "sap.fe": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "": {
+                "dataSource": "AdmissionService",
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect" : true,
+                    "earlyRequests": true,
+                    "groupProperties": {
+                        "default": {
+                          "submit": "Auto"
+                        }
+                    }
+                }
+            }
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "PatientsList",
+                    "target": "PatientsList"
+                },
+                {
+                    "pattern": "Patients({key}):?query:",
+                    "name": "PatientsDetails",
+                    "target": "PatientsDetails"
+                }
+            ],
+            "targets": {
+                "PatientsList": {
+                    "type": "Component",
+                    "id": "PatientsList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings" : {
+                            "entitySet" : "Patients",
+                            "navigation" : {
+                                "Patients" : {
+                                    "detail" : {
+                                        "route" : "PatientsDetails"
+                                        }
+                                }
+                            }
+                        }
+                    }
+                },
+                "PatientsDetails": {
+                    "type": "Component",
+                    "id": "PatientsDetails",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings" : {
+                            "entitySet": "Patients"
+                        }
+                    }
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "fullWidth": true
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    }
+}

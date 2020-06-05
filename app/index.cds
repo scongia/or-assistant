@@ -1,6 +1,7 @@
 
 using from './webapp/persons-admin/fiori-service';
 using from './webapp/roles-admin/fiori-service';
+using from './webapp/patients-admission/fiori-service';
 
 using com.or.assistant as db from '../db/data-model';
 
@@ -9,7 +10,7 @@ using com.or.assistant as db from '../db/data-model';
 annotate db.Persons with @(
     UI:{
         Identification: [{Value:firstName}],
-        SelectionFields: [ firstName, lastName, gender, Roles.role],
+        SelectionFields: [ firstName, lastName, gender, roles.role_ID],
         LineItem: [
             {Value: title},
             {Value: lastName},
@@ -42,11 +43,13 @@ annotate db.Persons with {
 }
 
 annotate db.Person_Role with {
-	role @title:'{i18n>role}';
+	role_ID @title:'{i18n>role}';
 }
 
 ////////////////////////////////////////////////////////////////////////////
 //    Practitioners
-annotate db.Practitioners with {
-	practiceNo @title:'{i18n>PracticeNumber}';
+annotate db.Role with {
+	role_ID @title:'{i18n>roleID}';
+    roleName @title:'{i18n>roleName}';
+    category @title:'{i18n>roleCategory}';
 }

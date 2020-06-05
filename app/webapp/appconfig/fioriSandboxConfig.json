@@ -66,6 +66,18 @@
                                         "info": "..oData V2",
                                         "targetURL": "#V2Roles-manage"
                                     }
+                                },
+								{
+                                    "id": "Patients",
+                                    "title": "Patients",
+                                    "size": "1×1",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "chipId": "V2catalogTile_Patients",
+                                        "title": "Patients",
+                                        "info": "..oData V2",
+                                        "targetURL": "#V2Patients-manage"
+                                    }
                                 }
                             ]
                         },
@@ -98,6 +110,18 @@
                                         "title": "Roles",
                                         "info": "..oData V4",
                                         "targetURL": "#V4Roles-manage"
+                                    }
+                                },
+								{
+                                    "id": "Patients",
+                                    "title": "Patients",
+                                    "size": "1×1",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "chipId": "V4catalogTile_Patients",
+                                        "title": "Patients",
+                                        "info": "..oData V4",
+                                        "targetURL": "#V4Patients-manage"
                                     }
                                 }
                             ]
@@ -155,6 +179,34 @@
                                 "applicationType": "SAPUI5",
                                 "additionalInformation": "SAPUI5.Component=roles.admin",
                                 "url": "roles-admin/webapp"
+                            }
+                        },
+						"actionV2Patients": {
+                            "semanticObject": "V2Patients",
+                            "action": "manage",
+                            "title": "Patients",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "allowed"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=v2.patients.admission",
+                                "url": "v2/patients-admission"
+                            }
+						},
+						"actionPatients": {
+                            "semanticObject": "V4Patients",
+                            "action": "manage",
+                            "title": "Patients",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "allowed"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=patients.admission",
+                                "url": "patients-admission/webapp"
                             }
                         }
                     }

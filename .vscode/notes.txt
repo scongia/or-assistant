@@ -98,3 +98,9 @@ SELECT.from('com.or.assistant.Person_Role',['parent_id']).where({role:'C'})
 
 SELECT.from('com.or.assistant.Persons').where(exists,SELECT.from('com.or.assistant.Person_Role',['parent_id']).where({role:'C'}))
 
+###Deployment
+>cds compile srv/admin-service.cds --to sql
+
+
+###Starging in debug
+DEBUG=true cds run
