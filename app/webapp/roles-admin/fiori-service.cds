@@ -12,7 +12,7 @@ annotate AdminService.Roles with @(
 		],
 		Facets: [
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>Description}', Target: '@UI.FieldGroup#Description'},
-			{$Type: 'UI.ReferenceFacet', Label: '{i18n>Assignments}', Target: 'Assignments/@UI.LineItem'}
+			{$Type: 'UI.ReferenceFacet', Label: '{i18n>Assignments}', Target: 'assignments/@UI.LineItem'}
 		],
 		FieldGroup#Category: {
 			Data: [
@@ -38,4 +38,3 @@ annotate AdminService.Roles with @(
         ]
     }
 );
-

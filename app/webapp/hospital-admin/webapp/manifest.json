@@ -1,14 +1,14 @@
 {
     "_version": "1.8.0",
     "sap.app": {
-        "id": "patients.admission",
+        "id": "hospital.admin",
         "type": "application",
-        "title": "Manage Patient",
-        "description": "Patients",
+        "title": "Manage Hospitals",
+        "description": "Person managment",
         "i18n": "i18n/i18n.properties",
         "dataSources": {
-            "AdmissionService": {
-                "uri": "/admission/",
+            "AdminService": {
+                "uri": "/admin/",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "4.0"
@@ -40,7 +40,7 @@
                 "uri": "i18n/i18n.properties"
             },
             "": {
-                "dataSource": "AdmissionService",
+                "dataSource": "AdminService",
                 "settings": {
                     "synchronizationMode": "None",
                     "operationMode": "Server",
@@ -58,40 +58,40 @@
             "routes": [
                 {
                     "pattern": ":?query:",
-                    "name": "PatientsList",
-                    "target": "PatientsList"
+                    "name": "HospitalsList",
+                    "target": "HospitalsList"
                 },
                 {
-                    "pattern": "Patients({key}):?query:",
-                    "name": "PatientsDetails",
-                    "target": "PatientsDetails"
+                    "pattern": "Hospitals({key}):?query:",
+                    "name": "HospitalsDetails",
+                    "target": "HospitalsDetails"
                 }
             ],
             "targets": {
-                "PatientsList": {
+                "HospitalsList": {
                     "type": "Component",
-                    "id": "PatientsList",
+                    "id": "HospitalsList",
                     "name": "sap.fe.templates.ListReport",
                     "options": {
                         "settings" : {
-                            "entitySet" : "Patients",
+                            "entitySet" : "Hospitals",
                             "navigation" : {
-                                "Patients" : {
+                                "Hospitals" : {
                                     "detail" : {
-                                        "route" : "PatientsDetails"
+                                        "route" : "HospitalsDetails"
                                         }
                                 }
                             }
                         }
                     }
                 },
-                "PatientsDetails": {
+                "HospitalsDetails": {
                     "type": "Component",
-                    "id": "PatientsDetails",
+                    "id": "HospitalsDetails",
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings" : {
-                            "entitySet": "Patients"
+                            "entitySet": "Hospitals"
                         }
                     }
                 }

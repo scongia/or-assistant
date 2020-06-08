@@ -11,7 +11,7 @@ annotate AdmissionService.Patients with @(
         },
 		Facets: [
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'},
-            {$Type: 'UI.ReferenceFacet', Label: '{i18n>MedicalAid}', Target: 'dataset_1/medicalAid/@UI.LineItem'},
+            {$Type: 'UI.ReferenceFacet', Label: '{i18n>MedicalAid}', Target: 'medicalInsurances/@UI.LineItem'},
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>Admin}', Target: '@UI.FieldGroup#Admin'},
 		],
 		FieldGroup#General: {
@@ -35,12 +35,28 @@ annotate AdmissionService.Patients with @(
 	}
 );
 
-annotate AdmissionService.DS_MedAid with @(
+annotate AdmissionService.Insurances with @(
 	UI: {
+		HeaderInfo: {
+			TypeName: '{i18n>MedicalAid}', TypeNamePlural: '{i18n>MedicalAid}',
+			Title: { Value: provider }
+		},
+		Facets: [
+			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'}
+		],
+		FieldGroup#General: {
+			Data: [
+				{ Value: provider, Label: '{i18n>provider}' },
+				{ Value: policyNumber, Lable: '{i18n>policyNumber}'},
+				{ Value: planType, Lable: '{i18n>planType}'},
+				{ Value: status, Lable: '{i18n>status}'}
+			]
+		},
 		LineItem: [
-			{ Value: medicalAid, Label: '{i18n>medicalAid}' },
-			{ Value: medicalAidNo, Lable: '{i18n>medicalAidNo}'},
-			{ Value: medicalAidPlan, Lable: '{i18n>medicalAidPlan}'}
+			{ Value: provider, Label: '{i18n>provider}' },
+			{ Value: policyNumber, Lable: '{i18n>policyNumber}'},
+			{ Value: planType, Lable: '{i18n>planType}'},
+			{ Value: status, Lable: '{i18n>status}'}
 		]
 	}
 );

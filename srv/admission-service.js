@@ -15,4 +15,12 @@ module.exports = (srv) => {
         patient = req.data
         patient.roles.push({parent_ID: patient.ID, role_ID: role.role_ID })
     })
+
+    srv.before('UPDATE','Patients', async (req) => {
+        var i = 1
+    })
+
+    srv.before('CREATE','Insurances', async (req) => {
+        var i = 1
+    })
 }

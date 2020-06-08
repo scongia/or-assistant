@@ -1,4 +1,4 @@
-using com.or.assistant as db from '../db/data-model';
+using com.sercon.common as db from '../db/schema';
 
 service AdminService  @(path:'/admin') {
     entity Persons as projection on db.Persons;
@@ -15,5 +15,10 @@ service AdminService  @(path:'/admin') {
 
     entity Roles as projection on db.Roles;
     annotate Roles with @odata.draft.enabled;
+
+    entity Hospitals as projection on db.Hospitals;
+    annotate Hospitals with @odata.draft.enabled;
+
+    entity OperatingTheatres as projection on db.OperatingTheatres;
 
 }

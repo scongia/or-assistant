@@ -3,7 +3,7 @@ using from './webapp/persons-admin/fiori-service';
 using from './webapp/roles-admin/fiori-service';
 using from './webapp/patients-admission/fiori-service';
 
-using com.or.assistant as db from '../db/data-model';
+using com.sercon.common as db from '../db/schema';
 
 ////////////////////////////////////////////////////////////////////////////
 //    Persons List
@@ -43,13 +43,22 @@ annotate db.Persons with {
 }
 
 annotate db.Person_Role with {
-	role_ID @title:'{i18n>role}';
+    role_ID @(
+		Label: '{i18n>Role}' ,
+        title:'{i18n>role}',
+		ValueList.entity:'Roles',
+	);
 }
 
-////////////////////////////////////////////////////////////////////////////
-//    Practitioners
-annotate db.Role with {
+annotate db.Roles with {
 	role_ID @title:'{i18n>roleID}';
     roleName @title:'{i18n>roleName}';
     category @title:'{i18n>roleCategory}';
+}
+
+annotate db.Insurances with {
+    provider @title:'{i18n>provider}';
+	policyNumber @title:'{i18n>policyNumber}';
+    planType @title:'{i18n>planType}';
+    status @title:'{i18n>status}';
 }

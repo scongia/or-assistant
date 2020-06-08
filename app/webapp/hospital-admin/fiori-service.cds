@@ -1,8 +1,8 @@
 using AdminService from '../../../srv/admin-service';
 
 ////////////////////////////////////////////////////////////////////////////
-//	Persons Object Page
-annotate AdminService.Persons with @(
+//	Hospitals Object Page
+annotate AdminService.Hospitals with @(
 	UI: {
 		Facets: [
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'},
@@ -30,7 +30,7 @@ annotate AdminService.Persons with @(
 	}
 );
 
-annotate AdminService.Person_Role with @(
+annotate AdminService.OperatingTheatres with @(
 	UI: {
 		HeaderInfo: {
 			TypeName: '{i18n>Role}', TypeNamePlural: '{i18n>Roles}',

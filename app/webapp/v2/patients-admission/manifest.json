@@ -31,7 +31,7 @@
 		"dependencies": {
 			"minUI5Version": "1.38.34",
 			"libs": {
-				"sap.fe": {}
+				"sap.fe.templates": {}
 			},
 			"components": {}
 		},
@@ -87,7 +87,14 @@
 						"entitySet": "Patients",
 						"component": {
 							"name": "sap.suite.ui.generic.template.ObjectPage"
-						}
+						},
+						"pages": [{
+							"navigationProperty": "medicalInsurances",
+							"entitySet": "Insurances",
+							"component": {
+								"name": "sap.suite.ui.generic.template.ObjectPage"
+							}
+						}]
 					}
 				}
 			}

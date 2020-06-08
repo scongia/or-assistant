@@ -31,7 +31,7 @@
 		"dependencies": {
 			"minUI5Version": "1.38.34",
 			"libs": {
-				"sap.fe": {}
+				"sap.fe.templates": {}
 			},
 			"components": {}
 		},
@@ -53,32 +53,6 @@
 					"json": true
 				}
 			}
-		},
-		"extends": {
-			"extensions": {
-				"sap.ui.controllerExtensions": {
-					 "sap.suite.ui.generic.template.ObjectPage.view.Details": {
-							"controllerName": "v2.persons.admin.ext.controller.ObjectPageExt",
-							"sap.ui.generic.app": {
-								"Persons":{
-									"EntitySet": "Persons",
-									"Sections":{
-										"Persons_Roles::com.sap.vocabularies.UI.v1.LineItem":{
-											"id": "Roles::com.sap.vocabularies.UI.v1.LineItem",
-											"Actions":{
-												"CreateRole":{
-													"id": "CreateRoleAction",
-													"text": "{{createRole}}",
-													"press":"onCreateRolesActions"
-												}
-											}
-										}
-									}
-								}
-							}
-					 }
-				}
-		  }
 		},
 		"resources": {
 			"js": [],
@@ -115,7 +89,7 @@
 							"name": "sap.suite.ui.generic.template.ObjectPage"
 						},
 						"pages": [{
-							"navigationProperty": "Roles",
+							"navigationProperty": "roles",
 							"entitySet": "Person_Role",
 							"component": {
 								"name": "sap.suite.ui.generic.template.ObjectPage"
