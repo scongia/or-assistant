@@ -24,7 +24,7 @@ npm run setup
 
 ## Run
 ```sh
-npm run build:deploy:startv2
+npm run install:build:deploy:startv2
 ```
 
 ## Test
